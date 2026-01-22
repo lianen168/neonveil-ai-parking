@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neonveil.ai - The Digital Interface of Tomorrow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-cyan: #0ff0fc;
+            --neon-purple: #bc13fe;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a12;
+            --grid-color: rgba(11, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: #e0e0ff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Cyberpunk scanline effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 255, 255, 0.03) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1;
+            animation: scanline 10s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Glowing border effect */
+        .cyber-border {
+            position: relative;
+            border: 1px solid transparent;
+            border-image: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)) 1;
+            box-shadow: 0 0 20px rgba(11, 255, 255, 0.2),
+                        inset 0 0 20px rgba(11, 255, 255, 0.1);
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--neon-cyan);
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            text-shadow: 0 0 30px rgba(188, 19, 254, 0.5);
+            animation: neon-pulse 2s infinite alternate;
+        }
+
+        @keyframes neon-pulse {
+            0% { text-shadow: 0 0 10px rgba(188, 19, 254, 0.5), 0 0 20px rgba(11, 240, 252, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(188, 19, 254, 0.8), 0 0 40px rgba(11, 240, 252, 0.5), 0 0 60px rgba(255, 0, 255, 0.3); }
+        }
+
+        .logo-subtitle {
+            font-size: 1.1rem;
+            color: var(--neon-cyan);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .domain-specs {
+            background: rgba(11, 240, 252, 0.1);
+            border: 1px solid var(--neon-cyan);
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .char-count {
+            font-size: 2rem;
+            color: var(--neon-pink);
+            font-weight: 700;
+        }
+
+        .char-label {
+            font-size: 0.9rem;
+            color: #a0a0ff;
+            letter-spacing: 2px;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 40px;
+            background: rgba(10, 10, 20, 0.7);
+            border-radius: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-highlight {
+            color: var(--neon-cyan);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+        }
+
+        .definition {
+            display: inline-block;
+            background: rgba(16, 16, 32, 0.8);
+            border-left: 4px solid var(--neon-purple);
+            padding: 25px;
+            margin: 30px auto;
+            text-align: left;
+            max-width: 800px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .definition h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        .word-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .word-part {
+            text-align: center;
+            padding: 15px;
+            min-width: 180px;
+        }
+
+        .word-label {
+            color: var(--neon-pink);
+            font-size: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* Content sections */
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 900px) {
+            .content-section {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(11, 240, 252, 0.3);
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+            color: var(--neon-pink);
+        }
+
+        .applications, .pricing {
+            background: rgba(16, 16, 36, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(11, 240, 252, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .applications::before, .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+        }
+
+        .app-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .app-item::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--neon-cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+        .app-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .app-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e0e0ff;
+        }
+
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        .app-desc {
+            color: #b0b0ff;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        /* Pricing section */
+        .price-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--neon-pink);
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            animation: price-glow 3s infinite alternate;
+        }
+
+        @keyframes price-glow {
+            0% { text-shadow: 0 0 10px rgba(255, 0, 255, 0.5); }
+            100% { text-shadow: 0 0 25px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.4); }
+        }
+
+        .payment-plan {
+            background: rgba(11, 240, 252, 0.05);
+            border: 1px solid rgba(11, 240, 252, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-plan h4 {
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .installment {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 10px 0;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(11, 240, 252, 0.1), rgba(188, 19, 254, 0.1));
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid rgba(11, 240, 252, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .contact-info h4 {
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .email {
+            font-size: 1.5rem;
+            color: #e0e0ff;
+            word-break: break-all;
+            margin: 20px 0;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            border: 1px solid rgba(11, 240, 252, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            color: #0a0a12;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(11, 240, 252, 0.4);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(188, 19, 254, 0.6);
+            animation: button-glow 0.5s alternate infinite;
+        }
+
+        @keyframes button-glow {
+            0% { box-shadow: 0 8px 25px rgba(188, 19, 254, 0.6); }
+            100% { box-shadow: 0 8px 30px rgba(11, 240, 252, 0.8), 0 0 15px rgba(11, 240, 252, 0.5); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            color: #a0a0ff;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(11, 240, 252, 0.2);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+        }
+
+        .footer-highlight {
+            color: var(--neon-cyan);
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Matrix rain effect in background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background effects -->
+    <div class="scanlines"></div>
+    <div class="matrix-bg" id="matrix"></div>
+
+    <div class="container">
+        <!-- Header with logo -->
+        <header>
+            <div class="logo-container">
+                <div class="logo-main">neonveil.ai</div>
+                <div class="logo-subtitle">THE LUMINOUS INTERFACE</div>
+            </div>
+            <div class="domain-specs">
+                <div class="char-count">8</div>
+                <div class="char-label">CHARACTERS</div>
+            </div>
+        </header>
+
+        <!-- Hero section -->
+        <section class="hero cyber-border">
+            <h1>Where <span class="hero-highlight">Digital Light</span> Meets the <span class="hero-highlight">Interface of Mystery</span></h1>
+            <p>The boundary between visible technology and hidden consciousness in the AGI era.</p>
+            
+            <div class="word-breakdown">
+                <div class="word-part">
+                    <div class="word-label">NEON</div>
+                    <div>Cyberpunk • Digital Light • Artificial Beauty • Night City Glow</div>
+                </div>
+                <div class="word-part">
+                    <div class="word-label">+</div>
+                    <div>Convergence</div>
+                </div>
+                <div class="word-part">
+                    <div class="word-label">VEIL</div>
+                    <div>Mystery • Privacy Layer • Digital Mask • Consciousness Boundary</div>
+                </div>
+            </div>
+            
+            <div class="definition">
+                <h3>NEONVEIL: /ˈniːɒn.veɪl/</h3>
+                <p><strong>The luminous interface</strong> that simultaneously reveals and conceals in the digital age.</p>
+                <p>A concept capturing the essence of AGI interaction: brilliant technological surfaces that obscure deeper systems of intelligence, identity, and consciousness.</p>
+            </div>
+        </section>
+
+        <!-- Main content -->
+        <div class="content-section">
+            <!-- Applications section -->
+            <section class="applications">
+                <h2 class="section-title"><i class="fas fa-code-branch"></i> DOMAIN APPLICATIONS</h2>
+                
+                <div class="app-item">
+                    <div class="app-title">
+                        <div class="app-name">AI Agent Identity Platform</div>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="app-desc">The identity layer for next-gen AI beings — where every agent wears a customizable digital mask. Balance intimacy with boundaries in human-AI interaction.</div>
+                </div>
+                
+                <div class="app-item">
+                    <div class="app-title">
+                        <div class="app-name">Privacy-First Metaverse</div>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="app-desc">A cyberpunk virtual world emphasizing "controlled anonymity." Roam neon cities protected by an elegant veil of privacy and selective disclosure.</div>
+                </div>
+                
+                <div class="app-item">
+                    <div class="app-title">
+                        <div class="app-name">Web3 Identity Protocol</div>
+                        <div class="rating">⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="app-desc">Decentralized identity (DID) and zero-knowledge systems that blend transparent technology with personal privacy — the digital veil protecting your data self.</div>
+                </div>
+                
+                <div class="app-item">
+                    <div class="app-title">
+                        <div class="app-name">Cyberpunk Narrative IP</div>
+                        <div class="rating">⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="app-desc">Core franchise for games, films, or novels exploring consciousness upload, urban secrets, and identity dissolution in hyper-technological societies.</div>
+                </div>
+            </section>
+
+            <!-- Pricing & contact section -->
+            <section class="pricing">
+                <h2 class="section-title"><i class="fas fa-bolt"></i> STRATEGIC DIGITAL ASSET</h2>
+                
+                <div class="price-tag">$42,000</div>
+                <p>Not just a domain — a philosophical stance on technology, identity, and the aesthetics of the coming intelligence era.</p>
+                
+                <div class="payment-plan">
+                    <h4>FLEXIBLE 7-INSTALLMENT PLAN</h4>
+                    <p>Available in <strong>7 equal payments</strong> of $6,000 each</p>
+                    
+                    <div class="installment">
+                        <span>Each installment:</span>
+                        <span style="color: var(--neon-cyan); font-family: 'Orbitron';">$6,000</span>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.95rem;">Custom payment terms available upon discussion</p>
+                </div>
+                
+                <div class="contact-info">
+                    <h4>ACQUIRE THIS DIGITAL FRONTIER</h4>
+                    <p>This premium .ai domain represents a unique intersection of aesthetics, technology, and philosophy</p>
+                    <div class="email">joshua369x@gmail.com</div>
+                    <a href="mailto:joshua369x@gmail.com?subject=neonveil.ai%20Domain%20Inquiry" class="cta-button">
+                        <i class="fas fa-terminal"></i> INITIATE ACQUISITION PROTOCOL
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p><span class="footer-highlight">neonveil.ai</span> — An 8-character .ai domain representing the luminous boundary between artificial intelligence and conscious identity.</p>
+            <p>The perfect brand for ventures exploring privacy, digital selfhood, and the aesthetics of the coming technological epoch.</p>
+            <p style="margin-top: 20px;">© <span id="currentYear"></span> — This Digital Frontier is Available for Acquisition</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Simple matrix rain effect
+        function createMatrixEffect() {
+            const canvas = document.createElement('canvas');
+            const container = document.getElementById('matrix');
+            container.appendChild(canvas);
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            
+            const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+            const charArray = chars.split('');
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+            const drops = [];
+            
+            for(let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * canvas.height / fontSize) * fontSize;
+            }
+            
+            function drawMatrix() {
+                // Semi-transparent black background for trail effect
+                ctx.fillStyle = 'rgba(10, 10, 18, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#0ff0fc';
+                ctx.font = `${fontSize}px 'Rajdhani', monospace`;
+                
+                for(let i = 0; i < drops.length; i++) {
+                    const text = charArray[Math.floor(Math.random() * charArray.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    // Reset drop to top when it reaches bottom
+                    if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }
+            
+            // Resize handling
+            window.addEventListener('resize', function() {
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            });
+            
+            // Animation loop
+            setInterval(drawMatrix, 50);
+        }
+
+        // Initialize effects when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createMatrixEffect();
+        });
+    </script>
+</body>
+</html>
