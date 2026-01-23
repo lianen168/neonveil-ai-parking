@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeonVeil.ai | The Future of Digital Wearables</title>
-    <meta name="description" content="Premium Domain for Sale. The ultimate brand for AI Digital Fashion, AR Wearables, and Synthetic Identity.">
+    <title>NeonVeil.ai | The Future of Digital Identity</title>
+    <meta name="description" content="Premium Domain for Sale. The ultimate brand for AI Digital Fashion, AR Wearables, Synthetic Identity, and Privacy.">
     
     <!-- Fonts & Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -200,11 +200,11 @@
         </div>
     </main>
 
-    <!-- Use Cases Grid -->
+    <!-- Use Cases Grid (4x Matrix) -->
     <section class="relative z-10 container mx-auto px-6 py-20 border-t border-cyber-dim bg-black/50">
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-8">
             
-            <!-- Case 1: Digital Wearables (NEW!) -->
+            <!-- Case 1: Digital Wearables -->
             <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors animate-float">
                 <div class="text-4xl text-cyber-cyan mb-4 group-hover:scale-110 transition-transform duration-500">
                     <i class="fa-solid fa-shirt"></i>
@@ -228,7 +228,7 @@
 
             <!-- Case 3: Synthetic Identity -->
             <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
-                <div class="text-4xl text-white mb-4 group-hover:scale-110 transition-transform duration-500">
+                <div class="text-4xl text-cyber-purple mb-4 group-hover:scale-110 transition-transform duration-500">
                     <i class="fa-solid fa-fingerprint"></i>
                 </div>
                 <h3 class="font-header text-lg text-white mb-2">Synthetic Identity</h3>
@@ -236,6 +236,18 @@
                     Privacy meets style. A powerful metaphor for encrypted digital personas and anonymous social interaction.
                 </p>
             </div>
+
+            <!-- Case 4: Privacy Protocol (Restored) -->
+            <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
+                <div class="text-4xl text-white mb-4 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h3 class="font-header text-lg text-white mb-2">Privacy Protocol</h3>
+                <p class="font-body text-gray-400 text-sm">
+                    A powerful metaphor for encryption, VPN services, and data protection in the transparent AI era.
+                </p>
+            </div>
+
         </div>
     </section>
 
@@ -314,4 +326,16 @@
             setTimeout(() => {
                 window.location.href = "mailto:" + email;
             }, 800);
-        
+        }
+
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className += " show";
+            
+            setTimeout(() => {
+                toast.className = toast.className.replace(" show", "");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
