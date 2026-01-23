@@ -3,652 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>neonveil.ai - The Digital Interface of Tomorrow</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>NeonVeil.ai | The Digital Masquerade</title>
+    <meta name="description" content="Premium Domain for Sale. The ultimate brand for Digital Privacy, AR Interfaces, and Synthetic Identity.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Rajdhani:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            black: '#020005',
+                            dark: '#090014',
+                            pink: '#ff00ff',     // Neon Pink
+                            cyan: '#00f3ff',     // Electric Cyan
+                            purple: '#bd00ff',   // Deep Violet
+                            dim: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    fontFamily: {
+                        header: ['Syncopate', 'sans-serif'],
+                        body: ['Rajdhani', 'sans-serif'],
+                        code: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'flicker': 'flicker 3s infinite alternate',
+                        'scanline': 'scanline 8s linear infinite',
+                    },
+                    keyframes: {
+                        flicker: {
+                            '0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%': { 
+                                opacity: 1,
+                                textShadow: '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff'
+                            },
+                            '20%, 24%, 55%': { 
+                                opacity: 0.5,
+                                textShadow: 'none'
+                            }
+                        },
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --neon-cyan: #0ff0fc;
-            --neon-purple: #bc13fe;
-            --neon-pink: #ff00ff;
-            --dark-bg: #0a0a12;
-            --grid-color: rgba(11, 255, 255, 0.05);
-        }
-
         body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: var(--dark-bg);
-            color: #e0e0ff;
-            min-height: 100vh;
+            background-color: #020005;
+            color: #ffffff;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 50px 50px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
+        /* Glitch Effect on Hover */
+        .glitch-hover:hover {
+            animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #00f3ff;
         }
 
-        /* Cyberpunk scanline effect */
+        @keyframes glitch-anim {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        /* CRT Scanline Effect */
         .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background: linear-gradient(
                 to bottom,
-                transparent 50%,
-                rgba(0, 255, 255, 0.03) 50%
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
             );
             background-size: 100% 4px;
-            pointer-events: none;
-            z-index: 1;
-            animation: scanline 10s linear infinite;
-        }
-
-        @keyframes scanline {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(100vh); }
-        }
-
-        /* Glowing border effect */
-        .cyber-border {
-            position: relative;
-            border: 1px solid transparent;
-            border-image: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)) 1;
-            box-shadow: 0 0 20px rgba(11, 255, 255, 0.2),
-                        inset 0 0 20px rgba(11, 255, 255, 0.1);
-        }
-
-        /* Header styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            margin-bottom: 60px;
-            border-bottom: 2px solid var(--neon-cyan);
-        }
-
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-main {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-            text-shadow: 0 0 30px rgba(188, 19, 254, 0.5);
-            animation: neon-pulse 2s infinite alternate;
-        }
-
-        @keyframes neon-pulse {
-            0% { text-shadow: 0 0 10px rgba(188, 19, 254, 0.5), 0 0 20px rgba(11, 240, 252, 0.3); }
-            100% { text-shadow: 0 0 20px rgba(188, 19, 254, 0.8), 0 0 40px rgba(11, 240, 252, 0.5), 0 0 60px rgba(255, 0, 255, 0.3); }
-        }
-
-        .logo-subtitle {
-            font-size: 1.1rem;
-            color: var(--neon-cyan);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: 5px;
-            font-weight: 600;
-        }
-
-        .domain-specs {
-            background: rgba(11, 240, 252, 0.1);
-            border: 1px solid var(--neon-cyan);
-            padding: 15px 25px;
-            border-radius: 8px;
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .char-count {
-            font-size: 2rem;
-            color: var(--neon-pink);
-            font-weight: 700;
-        }
-
-        .char-label {
-            font-size: 0.9rem;
-            color: #a0a0ff;
-            letter-spacing: 2px;
-        }
-
-        /* Hero section */
-        .hero {
-            text-align: center;
-            margin-bottom: 80px;
-            padding: 40px;
-            background: rgba(10, 10, 20, 0.7);
-            border-radius: 15px;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .hero-highlight {
-            color: var(--neon-cyan);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-        }
-
-        .definition {
-            display: inline-block;
-            background: rgba(16, 16, 32, 0.8);
-            border-left: 4px solid var(--neon-purple);
-            padding: 25px;
-            margin: 30px auto;
-            text-align: left;
-            max-width: 800px;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .definition h3 {
-            color: var(--neon-cyan);
-            margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-        }
-
-        .word-breakdown {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .word-part {
-            text-align: center;
-            padding: 15px;
-            min-width: 180px;
-        }
-
-        .word-label {
-            color: var(--neon-pink);
-            font-size: 1.8rem;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        /* Content sections */
-        .content-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 80px;
-        }
-
-        @media (max-width: 900px) {
-            .content-section {
-                grid-template-columns: 1fr;
-            }
-            
-            header {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
-            }
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--neon-cyan);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(11, 240, 252, 0.3);
-        }
-
-        .section-title i {
-            font-size: 1.5rem;
-            color: var(--neon-pink);
-        }
-
-        .applications, .pricing {
-            background: rgba(16, 16, 36, 0.8);
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid rgba(11, 240, 252, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .applications::before, .pricing::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-        }
-
-        .app-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .app-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .app-item::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--neon-cyan);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-
-        .app-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .app-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #e0e0ff;
-        }
-
-        .rating {
-            color: #FFD700;
-            font-size: 1.2rem;
-        }
-
-        .app-desc {
-            color: #b0b0ff;
-            line-height: 1.5;
-            font-size: 1.05rem;
-        }
-
-        /* Pricing section */
-        .price-tag {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            color: var(--neon-pink);
-            margin: 20px 0;
-            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-            animation: price-glow 3s infinite alternate;
-        }
-
-        @keyframes price-glow {
-            0% { text-shadow: 0 0 10px rgba(255, 0, 255, 0.5); }
-            100% { text-shadow: 0 0 25px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.4); }
-        }
-
-        .payment-plan {
-            background: rgba(11, 240, 252, 0.05);
-            border: 1px solid rgba(11, 240, 252, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 25px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .payment-plan h4 {
-            color: var(--neon-cyan);
-            margin-bottom: 10px;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .installment {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-            padding: 10px 0;
-            border-top: 1px dashed rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, rgba(11, 240, 252, 0.1), rgba(188, 19, 254, 0.1));
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 30px;
-            text-align: center;
-            border: 1px solid rgba(11, 240, 252, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .contact-info h4 {
-            color: var(--neon-cyan);
-            margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .email {
-            font-size: 1.5rem;
-            color: #e0e0ff;
-            word-break: break-all;
-            margin: 20px 0;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-            border: 1px solid rgba(11, 240, 252, 0.2);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-            color: #0a0a12;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding: 18px 40px;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-top: 20px;
-            letter-spacing: 2px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(11, 240, 252, 0.4);
-            position: relative;
-            z-index: 1;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(188, 19, 254, 0.6);
-            animation: button-glow 0.5s alternate infinite;
-        }
-
-        @keyframes button-glow {
-            0% { box-shadow: 0 8px 25px rgba(188, 19, 254, 0.6); }
-            100% { box-shadow: 0 8px 30px rgba(11, 240, 252, 0.8), 0 0 15px rgba(11, 240, 252, 0.5); }
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 60px;
-            color: #a0a0ff;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(11, 240, 252, 0.2);
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-        }
-
-        .footer-highlight {
-            color: var(--neon-cyan);
-            font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        /* Matrix rain effect in background */
-        .matrix-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             pointer-events: none;
-            z-index: 0;
-            opacity: 0.03;
+            inset: 0;
+            z-index: 50;
+        }
+
+        .neon-border {
+            box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff;
+            border: 1px solid #00f3ff;
+        }
+        
+        .neon-text-pink {
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+        }
+        
+        .neon-text-cyan {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+        }
+
+        /* Glass Panel */
+        .cyber-panel {
+            background: rgba(10, 0, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            position: relative;
+        }
+        
+        /* Corner Accents */
+        .corner-accent::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px;
+            width: 20px; height: 20px;
+            border-top: 2px solid #ff00ff;
+            border-left: 2px solid #ff00ff;
+        }
+        .corner-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; right: -1px;
+            width: 20px; height: 20px;
+            border-bottom: 2px solid #00f3ff;
+            border-right: 2px solid #00f3ff;
+        }
+
+        #toast {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(20px) translateX(-50%);
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0) translateX(-50%);
         }
     </style>
 </head>
-<body>
-    <!-- Background effects -->
+<body class="font-body selection:bg-cyber-pink selection:text-white flex flex-col min-h-screen">
+
     <div class="scanlines"></div>
-    <div class="matrix-bg" id="matrix"></div>
 
-    <div class="container">
-        <!-- Header with logo -->
-        <header>
-            <div class="logo-container">
-                <div class="logo-main">neonveil.ai</div>
-                <div class="logo-subtitle">THE LUMINOUS INTERFACE</div>
-            </div>
-            <div class="domain-specs">
-                <div class="char-count">8</div>
-                <div class="char-label">CHARACTERS</div>
-            </div>
-        </header>
-
-        <!-- Hero section -->
-        <section class="hero cyber-border">
-            <h1>Where <span class="hero-highlight">Digital Light</span> Meets the <span class="hero-highlight">Interface of Mystery</span></h1>
-            <p>The boundary between visible technology and hidden consciousness in the AGI era.</p>
-            
-            <div class="word-breakdown">
-                <div class="word-part">
-                    <div class="word-label">NEON</div>
-                    <div>Cyberpunk • Digital Light • Artificial Beauty • Night City Glow</div>
-                </div>
-                <div class="word-part">
-                    <div class="word-label">+</div>
-                    <div>Convergence</div>
-                </div>
-                <div class="word-part">
-                    <div class="word-label">VEIL</div>
-                    <div>Mystery • Privacy Layer • Digital Mask • Consciousness Boundary</div>
-                </div>
-            </div>
-            
-            <div class="definition">
-                <h3>NEONVEIL: /ˈniːɒn.veɪl/</h3>
-                <p><strong>The luminous interface</strong> that simultaneously reveals and conceals in the digital age.</p>
-                <p>A concept capturing the essence of AGI interaction: brilliant technological surfaces that obscure deeper systems of intelligence, identity, and consciousness.</p>
-            </div>
-        </section>
-
-        <!-- Main content -->
-        <div class="content-section">
-            <!-- Applications section -->
-            <section class="applications">
-                <h2 class="section-title"><i class="fas fa-code-branch"></i> DOMAIN APPLICATIONS</h2>
-                
-                <div class="app-item">
-                    <div class="app-title">
-                        <div class="app-name">AI Agent Identity Platform</div>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="app-desc">The identity layer for next-gen AI beings — where every agent wears a customizable digital mask. Balance intimacy with boundaries in human-AI interaction.</div>
-                </div>
-                
-                <div class="app-item">
-                    <div class="app-title">
-                        <div class="app-name">Privacy-First Metaverse</div>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="app-desc">A cyberpunk virtual world emphasizing "controlled anonymity." Roam neon cities protected by an elegant veil of privacy and selective disclosure.</div>
-                </div>
-                
-                <div class="app-item">
-                    <div class="app-title">
-                        <div class="app-name">Web3 Identity Protocol</div>
-                        <div class="rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="app-desc">Decentralized identity (DID) and zero-knowledge systems that blend transparent technology with personal privacy — the digital veil protecting your data self.</div>
-                </div>
-                
-                <div class="app-item">
-                    <div class="app-title">
-                        <div class="app-name">Cyberpunk Narrative IP</div>
-                        <div class="rating">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="app-desc">Core franchise for games, films, or novels exploring consciousness upload, urban secrets, and identity dissolution in hyper-technological societies.</div>
-                </div>
-            </section>
-
-            <!-- Pricing & contact section -->
-            <section class="pricing">
-                <h2 class="section-title"><i class="fas fa-bolt"></i> STRATEGIC DIGITAL ASSET</h2>
-                
-                <div class="price-tag">$42,000</div>
-                <p>Not just a domain — a philosophical stance on technology, identity, and the aesthetics of the coming intelligence era.</p>
-                
-                <div class="payment-plan">
-                    <h4>FLEXIBLE 7-INSTALLMENT PLAN</h4>
-                    <p>Available in <strong>7 equal payments</strong> of $6,000 each</p>
-                    
-                    <div class="installment">
-                        <span>Each installment:</span>
-                        <span style="color: var(--neon-cyan); font-family: 'Orbitron';">$6,000</span>
-                    </div>
-                    <p style="margin-top: 15px; font-size: 0.95rem;">Custom payment terms available upon discussion</p>
-                </div>
-                
-                <div class="contact-info">
-                    <h4>ACQUIRE THIS DIGITAL FRONTIER</h4>
-                    <p>This premium .ai domain represents a unique intersection of aesthetics, technology, and philosophy</p>
-                    <div class="email">joshua369x@gmail.com</div>
-                    <a href="mailto:joshua369x@gmail.com?subject=neonveil.ai%20Domain%20Inquiry" class="cta-button">
-                        <i class="fas fa-terminal"></i> INITIATE ACQUISITION PROTOCOL
-                    </a>
-                </div>
-            </section>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p><span class="footer-highlight">neonveil.ai</span> — An 8-character .ai domain representing the luminous boundary between artificial intelligence and conscious identity.</p>
-            <p>The perfect brand for ventures exploring privacy, digital selfhood, and the aesthetics of the coming technological epoch.</p>
-            <p style="margin-top: 20px;">© <span id="currentYear"></span> — This Digital Frontier is Available for Acquisition</p>
-        </footer>
+    <!-- Background Fog -->
+    <div class="fixed inset-0 z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyber-purple/20 blur-[150px] rounded-full animate-pulse"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyber-cyan/10 blur-[150px] rounded-full"></div>
     </div>
 
-    <script>
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    <!-- Nav -->
+    <nav class="relative z-40 container mx-auto px-6 py-8 flex justify-between items-center border-b border-cyber-dim">
+        <div class="font-header text-2xl font-bold tracking-widest">
+            NEON<span class="text-cyber-pink animate-flicker">VEIL</span><span class="text-cyber-cyan text-sm align-top">.AI</span>
+        </div>
+        <button onclick="handleEmailClick(event)" class="font-code text-xs text-cyber-cyan hover:text-white transition-colors uppercase tracking-widest border border-cyber-cyan/30 px-4 py-2 hover:bg-cyber-cyan/10">
+            [ Encrypted Channel ]
+        </button>
+    </nav>
 
-        // Simple matrix rain effect
-        function createMatrixEffect() {
-            const canvas = document.createElement('canvas');
-            const container = document.getElementById('matrix');
-            container.appendChild(canvas);
+    <!-- Main Hero -->
+    <main class="relative z-10 container mx-auto px-6 pt-20 pb-32 flex flex-col items-center text-center flex-grow">
+        
+        <div class="mb-6 flex items-center gap-4">
+            <span class="h-[1px] w-12 bg-cyber-pink/50"></span>
+            <span class="font-code text-cyber-pink text-xs tracking-[0.3em] uppercase glow-text">System Online</span>
+            <span class="h-[1px] w-12 bg-cyber-pink/50"></span>
+        </div>
+
+        <h1 class="font-header text-5xl md:text-7xl lg:text-8xl font-bold leading-none mb-8 relative">
+            <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">DIGITAL</span>
+            <span class="block text-cyber-cyan neon-text-cyan glitch-hover cursor-default">IDENTITY</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">UNVEILED</span>
+        </h1>
+
+        <p class="font-body text-xl md:text-2xl text-gray-400 max-w-2xl mb-12 font-light">
+            The defining interface for <span class="text-cyber-pink">Privacy Tech</span>, <span class="text-cyber-cyan">AR Filters</span>, and <span class="text-white">Synthetic Personas</span>.
+            <br/><span class="text-sm font-code text-gray-600 mt-2 block">// Where the physical world meets the digital veil.</span>
+        </p>
+
+        <!-- Action Module -->
+        <div class="flex flex-col md:flex-row gap-6 w-full max-w-lg">
+            <!-- Buy Button -->
+            <a href="YOUR_DAN_LINK_HERE" target="_blank" 
+               class="group relative flex-1 bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan font-header font-bold py-4 px-8 hover:bg-cyber-cyan hover:text-black transition-all duration-300 uppercase tracking-wider text-center neon-border">
+                Acquire Asset
+                <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
+            </a>
             
-            const ctx = canvas.getContext('2d');
-            canvas.width = container.clientWidth;
-            canvas.height = container.clientHeight;
-            
-            const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
-            const charArray = chars.split('');
-            const fontSize = 14;
-            const columns = canvas.width / fontSize;
-            const drops = [];
-            
-            for(let i = 0; i < columns; i++) {
-                drops[i] = Math.floor(Math.random() * canvas.height / fontSize) * fontSize;
-            }
-            
-            function drawMatrix() {
-                // Semi-transparent black background for trail effect
-                ctx.fillStyle = 'rgba(10, 10, 18, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            <!-- Email Button -->
+            <button onclick="handleEmailClick(event)" 
+               class="flex-1 border border-cyber-pink/50 text-cyber-pink font-code py-4 px-8 hover:border-cyber-pink hover:shadow-[0_0_15px_rgba(255,0,255,0.4)] transition-all duration-300 uppercase tracking-widest">
+                Negotiate
+            </button>
+        </div>
+    </main>
+
+    <!-- Use Cases Grid -->
+    <section class="relative z-10 container mx-auto px-6 py-20 border-t border-cyber-dim bg-black/50">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Case 1 -->
+            <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
+                <div class="text-4xl text-cyber-cyan mb-4 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fa-solid fa-mask"></i>
+                </div>
+                <h3 class="font-header text-lg text-white mb-2">Synthetic Identity</h3>
+                <p class="font-body text-gray-400 text-sm">
+                    Perfect branding for AI-generated avatars, anonymous social networks, and digital masking tools.
+                </p>
+            </div>
+
+            <!-- Case 2 -->
+            <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
+                <div class="text-4xl text-cyber-pink mb-4 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                </div>
+                <h3 class="font-header text-lg text-white mb-2">AR / VR Filters</h3>
+                <p class="font-body text-gray-400 text-sm">
+                    The ultimate name for "Reality Augmentation" layers. The veil between the seen and the unseen.
+                </p>
+            </div>
+
+            <!-- Case 3 -->
+            <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
+                <div class="text-4xl text-white mb-4 group-hover:scale-110 transition-transform duration-500">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h3 class="font-header text-lg text-white mb-2">Privacy Protocol</h3>
+                <p class="font-body text-gray-400 text-sm">
+                    A powerful metaphor for encryption and data protection services in the transparent AI era.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Terminal -->
+    <section class="relative z-10 container mx-auto px-6 py-24">
+        <div class="max-w-3xl mx-auto border border-gray-800 bg-black p-2 font-code text-sm shadow-2xl">
+            <!-- Terminal Header -->
+            <div class="bg-gray-900 px-4 py-2 flex items-center gap-2 border-b border-gray-800 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="ml-2 text-gray-500">root@neonveil:~# transaction_status</span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-4 space-y-4">
+                <div class="flex justify-between items-end border-b border-gray-800 pb-2">
+                    <span class="text-gray-400">TARGET_ASSET:</span>
+                    <span class="text-cyber-cyan text-xl">neonveil.ai</span>
+                </div>
                 
-                ctx.fillStyle = '#0ff0fc';
-                ctx.font = `${fontSize}px 'Rajdhani', monospace`;
-                
-                for(let i = 0; i < drops.length; i++) {
-                    const text = charArray[Math.floor(Math.random() * charArray.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                    
-                    // Reset drop to top when it reaches bottom
-                    if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    
-                    drops[i]++;
-                }
-            }
+                <div class="flex justify-between items-end border-b border-gray-800 pb-2">
+                    <span class="text-gray-400">VALUATION:</span>
+                    <span class="text-white text-2xl font-bold">$42,000 USD</span>
+                </div>
+
+                <div class="flex justify-between items-end pb-2">
+                    <span class="text-gray-400">PAYMENT_PROTOCOL:</span>
+                    <div class="text-right">
+                        <span class="block text-cyber-pink">7-Month Installments Enabled</span>
+                        <span class="text-xs text-gray-500">Escrow Secured via Dan.com</span>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <a href="YOUR_DAN_LINK_HERE" target="_blank" class="block w-full bg-cyber-pink/20 border border-cyber-pink text-cyber-pink text-center py-3 hover:bg-cyber-pink hover:text-white transition-all cursor-pointer">
+                        > EXECUTE_PURCHASE_AGREEMENT_
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-cyber-dim py-8 bg-black mt-auto">
+        <div class="container mx-auto px-6 flex justify-between items-center text-xs font-code text-gray-600">
+            <div>
+                &copy; 2026 NEONVEIL.AI
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span>STATUS: AVAILABLE</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-10 left-1/2 bg-black text-cyber-cyan px-6 py-3 border border-cyber-cyan shadow-[0_0_20px_rgba(0,243,255,0.3)] z-50 flex items-center gap-3 font-code text-xs tracking-wider">
+        <i class="fa-solid fa-terminal"></i>
+        <span>CONTACT_COPIED_TO_CLIPBOARD</span>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function handleEmailClick(e) {
+            e.preventDefault();
+            const email = "joshua369x@gmail.com";
             
-            // Resize handling
-            window.addEventListener('resize', function() {
-                canvas.width = container.clientWidth;
-                canvas.height = container.clientHeight;
+            navigator.clipboard.writeText(email).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Copy failed', err);
+                showToast();
             });
-            
-            // Animation loop
-            setInterval(drawMatrix, 50);
+
+            setTimeout(() => {
+                window.location.href = "mailto:" + email;
+            }, 800);
         }
 
-        // Initialize effects when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            createMatrixEffect();
-        });
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className += " show";
+            
+            setTimeout(() => {
+                toast.className = toast.className.replace(" show", "");
+            }, 3000);
+        }
     </script>
 </body>
 </html>
