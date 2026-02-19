@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeonVeil.ai | The Future of Digital Identity</title>
     <meta name="description" content="Premium Domain for Sale. The ultimate brand for AI Digital Fashion, AR Wearables, Synthetic Identity, and Privacy.">
-    
     <!-- Fonts & Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Rajdhani:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,9 +18,9 @@
                         cyber: {
                             black: '#020005',
                             dark: '#090014',
-                            pink: '#ff00ff',     // Neon Pink
-                            cyan: '#00f3ff',     // Electric Cyan
-                            purple: '#bd00ff',   // Deep Violet
+                            pink: '#ff00ff', // Neon Pink
+                            cyan: '#00f3ff', // Electric Cyan
+                            purple: '#bd00ff', // Deep Violet
                             dim: 'rgba(255, 255, 255, 0.1)'
                         }
                     },
@@ -38,252 +36,158 @@
                     },
                     keyframes: {
                         flicker: {
-                            '0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%': { 
-                                opacity: 1,
-                                textShadow: '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff'
-                            },
-                            '20%, 24%, 55%': { 
-                                opacity: 0.5,
-                                textShadow: 'none'
-                            }
+                            '0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%': { opacity: 1, textShadow: '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff' },
+                            '20%, 24%, 55%': { opacity: 0.5, textShadow: 'none' }
                         },
-                        scanline: {
-                            '0%': { transform: 'translateY(-100%)' },
-                            '100%': { transform: 'translateY(100%)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
+                        scanline: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(100%)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' }, }
                     }
                 }
             }
         }
     </script>
-
     <style>
-        body {
-            background-color: #020005;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Glitch Effect on Hover */
-        .glitch-hover:hover {
-            animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-            color: #00f3ff;
-        }
-
-        @keyframes glitch-anim {
-            0% { transform: translate(0) }
-            20% { transform: translate(-2px, 2px) }
-            40% { transform: translate(-2px, -2px) }
-            60% { transform: translate(2px, 2px) }
-            80% { transform: translate(2px, -2px) }
-            100% { transform: translate(0) }
-        }
-
-        /* CRT Scanline Effect */
-        .scanlines {
-            background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,0),
-                rgba(255,255,255,0) 50%,
-                rgba(0,0,0,0.2) 50%,
-                rgba(0,0,0,0.2)
-            );
-            background-size: 100% 4px;
-            position: fixed;
-            pointer-events: none;
-            inset: 0;
-            z-index: 50;
-        }
-
-        .neon-border {
-            box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff;
-            border: 1px solid #00f3ff;
-        }
-        
-        /* Glass Panel */
-        .cyber-panel {
-            background: rgba(10, 0, 20, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 0, 255, 0.2);
-            position: relative;
-        }
-        
-        /* Corner Accents */
-        .corner-accent::before {
-            content: '';
-            position: absolute;
-            top: -1px; left: -1px;
-            width: 20px; height: 20px;
-            border-top: 2px solid #ff00ff;
-            border-left: 2px solid #ff00ff;
-        }
-        .corner-accent::after {
-            content: '';
-            position: absolute;
-            bottom: -1px; right: -1px;
-            width: 20px; height: 20px;
-            border-bottom: 2px solid #00f3ff;
-            border-right: 2px solid #00f3ff;
-        }
-
-        #toast {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            transform: translateY(20px) translateX(-50%);
-        }
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0) translateX(-50%);
-        }
+        body { background-color: #020005; color: #ffffff; overflow-x: hidden; }
+        .glitch-hover:hover { animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; color: #00f3ff; }
+        @keyframes glitch-anim { 0% { transform: translate(0) } 20% { transform: translate(-2px, 2px) } 40% { transform: translate(-2px, -2px) } 60% { transform: translate(2px, 2px) } 80% { transform: translate(2px, -2px) } 100% { transform: translate(0) } }
+        .scanlines { background: linear-gradient( to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2) ); background-size: 100% 4px; position: fixed; pointer-events: none; inset: 0; z-index: 50; }
+        .neon-border { box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff; border: 1px solid #00f3ff; }
+        .cyber-panel { background: rgba(10, 0, 20, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 0, 255, 0.2); position: relative; }
+        .corner-accent::before { content: ''; position: absolute; top: -1px; left: -1px; width: 20px; height: 20px; border-top: 2px solid #ff00ff; border-left: 2px solid #ff00ff; }
+        .corner-accent::after { content: ''; position: absolute; bottom: -1px; right: -1px; width: 20px; height: 20px; border-bottom: 2px solid #00f3ff; border-right: 2px solid #00f3ff; }
+        #formStatus { display: none; }
     </style>
 </head>
-<body class="font-body selection:bg-cyber-pink selection:text-white flex flex-col min-h-screen">
+<body class="bg-cyber-black text-white font-body">
 
     <div class="scanlines"></div>
-
-    <!-- Background Fog -->
     <div class="fixed inset-0 z-0">
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyber-purple/20 blur-[150px] rounded-full animate-pulse"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyber-cyan/10 blur-[150px] rounded-full"></div>
     </div>
 
-    <!-- Nav -->
     <nav class="relative z-40 container mx-auto px-6 py-8 flex justify-between items-center border-b border-cyber-dim">
         <div class="font-header text-2xl font-bold tracking-widest">
             NEON<span class="text-cyber-pink animate-flicker">VEIL</span><span class="text-cyber-cyan text-sm align-top">.AI</span>
         </div>
-        <button onclick="handleEmailClick(event)" class="font-code text-xs text-cyber-cyan hover:text-white transition-colors uppercase tracking-widest border border-cyber-cyan/30 px-4 py-2 hover:bg-cyber-cyan/10">
+        <a href="#offer-section" class="font-code text-xs text-cyber-cyan hover:text-white transition-colors uppercase tracking-widest border border-cyber-cyan/30 px-4 py-2 hover:bg-cyber-cyan/10">
             [ Contact ]
-        </button>
+        </a>
     </nav>
 
-    <!-- Main Hero -->
     <main class="relative z-10 container mx-auto px-6 pt-20 pb-32 flex flex-col items-center text-center flex-grow">
-        
         <div class="mb-6 flex items-center gap-4">
             <span class="h-[1px] w-12 bg-cyber-pink/50"></span>
             <span class="font-code text-cyber-pink text-xs tracking-[0.3em] uppercase glow-text">Web3 / Fashion / AI</span>
             <span class="h-[1px] w-12 bg-cyber-pink/50"></span>
         </div>
-
         <h1 class="font-header text-5xl md:text-7xl lg:text-8xl font-bold leading-none mb-8 relative">
             <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">DIGITAL</span>
             <span class="block text-cyber-cyan neon-text-cyan glitch-hover cursor-default">COUTURE</span>
             <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">UNVEILED</span>
         </h1>
-
         <p class="font-body text-xl md:text-2xl text-gray-400 max-w-2xl mb-12 font-light">
-            The definitive brand for <span class="text-cyber-pink">AI Wearables</span>, <span class="text-cyber-cyan">Virtual Fashion</span>, and <span class="text-white">Synthetic Identity</span>.
-            <br/><span class="text-sm font-code text-gray-600 mt-2 block">// Where code becomes the new fabric.</span>
+            The definitive brand for <span class="text-cyber-pink">AI Wearables</span>, <span class="text-cyber-cyan">Virtual Fashion</span>, and <span class="text-white">Synthetic Identity</span>. <br/>
+            <span class="text-sm font-code text-gray-600 mt-2 block">// Where code becomes the new fabric.</span>
         </p>
-
-        <!-- Action Module -->
+        
         <div class="flex flex-col md:flex-row gap-6 w-full max-w-lg">
-            <!-- Buy Button (Afternic Link) -->
-            <a href="https://www.afternic.com/domain/neonveil.ai" target="_blank" 
-               class="group relative flex-1 bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan font-header font-bold py-4 px-8 hover:bg-cyber-cyan hover:text-black transition-all duration-300 uppercase tracking-wider text-center neon-border">
+            <a href="https://www.spaceship.com/s/buy/neonveil.ai/8pZpV1xgtBxhYDVN" target="_blank" class="group relative flex-1 bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan font-header font-bold py-4 px-8 hover:bg-cyber-cyan hover:text-black transition-all duration-300 uppercase tracking-wider text-center neon-border">
                 Acquire Asset
                 <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
             </a>
-            
-            <!-- Email Button -->
-            <button onclick="handleEmailClick(event)" 
-               class="flex-1 border border-cyber-pink/50 text-cyber-pink font-code py-4 px-8 hover:border-cyber-pink hover:shadow-[0_0_15px_rgba(255,0,255,0.4)] transition-all duration-300 uppercase tracking-widest">
+            <a href="#offer-section" class="flex-1 border border-cyber-pink/50 text-cyber-pink font-code py-4 px-8 hover:border-cyber-pink hover:shadow-[0_0_15px_rgba(255,0,255,0.4)] transition-all duration-300 uppercase tracking-widest text-center">
                 Make Offer
-            </button>
+            </a>
         </div>
     </main>
 
-    <!-- Use Cases Grid (4x Matrix) -->
     <section class="relative z-10 container mx-auto px-6 py-20 border-t border-cyber-dim bg-black/50">
         <div class="grid md:grid-cols-2 gap-8">
-            
-            <!-- Case 1: Digital Wearables -->
             <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors animate-float">
-                <div class="text-4xl text-cyber-cyan mb-4 group-hover:scale-110 transition-transform duration-500">
-                    <i class="fa-solid fa-shirt"></i>
-                </div>
+                <div class="text-4xl text-cyber-cyan mb-4 group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-shirt"></i></div>
                 <h3 class="font-header text-lg text-white mb-2">Digital Wearables</h3>
-                <p class="font-body text-gray-400 text-sm">
-                    The perfect label for AI-generated fashion, NFT skins, and metaverse apparel. "Veil" your avatar in digital neon.
-                </p>
+                <p class="font-body text-gray-400 text-sm">The perfect label for AI-generated fashion, NFT skins, and metaverse apparel. "Veil" your avatar in digital neon.</p>
             </div>
-
-            <!-- Case 2: AR Filters -->
             <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
-                <div class="text-4xl text-cyber-pink mb-4 group-hover:scale-110 transition-transform duration-500">
-                    <i class="fa-solid fa-glasses"></i>
-                </div>
+                <div class="text-4xl text-cyber-pink mb-4 group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-glasses"></i></div>
                 <h3 class="font-header text-lg text-white mb-2">AR / VR Filters</h3>
-                <p class="font-body text-gray-400 text-sm">
-                    The ultimate name for "Reality Augmentation" layers. Enhancing human perception through AI lenses.
-                </p>
+                <p class="font-body text-gray-400 text-sm">The ultimate name for "Reality Augmentation" layers. Enhancing human perception through AI lenses.</p>
             </div>
-
-            <!-- Case 3: Synthetic Identity -->
             <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
-                <div class="text-4xl text-cyber-purple mb-4 group-hover:scale-110 transition-transform duration-500">
-                    <i class="fa-solid fa-fingerprint"></i>
-                </div>
+                <div class="text-4xl text-cyber-purple mb-4 group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-fingerprint"></i></div>
                 <h3 class="font-header text-lg text-white mb-2">Synthetic Identity</h3>
-                <p class="font-body text-gray-400 text-sm">
-                    Privacy meets style. A powerful metaphor for encrypted digital personas and anonymous social interaction.
-                </p>
+                <p class="font-body text-gray-400 text-sm">Privacy meets style. A powerful metaphor for encrypted digital personas and anonymous social interaction.</p>
             </div>
-
-            <!-- Case 4: Privacy Protocol (Restored) -->
             <div class="cyber-panel p-8 corner-accent group hover:bg-white/5 transition-colors">
-                <div class="text-4xl text-white mb-4 group-hover:scale-110 transition-transform duration-500">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
+                <div class="text-4xl text-white mb-4 group-hover:scale-110 transition-transform duration-500"><i class="fa-solid fa-user-shield"></i></div>
                 <h3 class="font-header text-lg text-white mb-2">Privacy Protocol</h3>
-                <p class="font-body text-gray-400 text-sm">
-                    A powerful metaphor for encryption, VPN services, and data protection in the transparent AI era.
-                </p>
+                <p class="font-body text-gray-400 text-sm">A powerful metaphor for encryption, VPN services, and data protection in the transparent AI era.</p>
             </div>
-
         </div>
     </section>
 
-    <!-- Pricing / Terminal -->
-    <section class="relative z-10 container mx-auto px-6 py-24">
+    <section id="offer-section" class="relative z-10 container mx-auto px-6 py-24">
+        <div class="max-w-2xl mx-auto">
+            <div class="cyber-panel p-8 corner-accent">
+                <h3 class="font-header text-3xl text-center text-cyber-pink mb-2 animate-flicker">Submit Your Offer</h3>
+                <p class="font-code text-center text-gray-500 mb-8 text-xs">// Private negotiation protocol</p>
+                <form id="offerForm" action="https://formsubmit.co/zlqsl2018@gmail.com" method="POST">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Offer for NeonVeil.ai">
+
+                    <div class="space-y-6">
+                        <div>
+                            <label for="offer_amount" class="font-code text-cyber-cyan text-sm tracking-widest">OFFER_AMOUNT (USD)</label>
+                            <div class="relative mt-2">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
+                                <input type="number" name="amount" id="offer_amount" required class="w-full bg-cyber-dark/80 border border-cyber-pink/30 text-white font-code p-3 pl-8 focus:border-cyber-pink focus:ring-0 focus:shadow-[0_0_15px_rgba(255,0,255,0.4)] transition-all" placeholder="e.g., 5000">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="font-code text-cyber-cyan text-sm tracking-widest">CONTACT_EMAIL</label>
+                            <input type="email" name="email" id="email" required class="w-full bg-cyber-dark/80 border border-cyber-pink/30 text-white font-code p-3 mt-2 focus:border-cyber-pink focus:ring-0 focus:shadow-[0_0_15px_rgba(255,0,255,0.4)] transition-all" placeholder="your@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8">
+                        <button type="submit" class="w-full bg-cyber-pink/20 border border-cyber-pink text-cyber-pink font-header text-center py-3 hover:bg-cyber-pink hover:text-white transition-all cursor-pointer text-lg tracking-widest">
+                            > TRANSMIT_OFFER
+                        </button>
+                    </div>
+                </form>
+                <div id="formStatus" class="text-center font-code text-sm mt-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative z-10 container mx-auto px-6 py-24 border-t border-cyber-dim">
         <div class="max-w-3xl mx-auto border border-gray-800 bg-black p-2 font-code text-sm shadow-2xl">
-            <!-- Terminal Header -->
             <div class="bg-gray-900 px-4 py-2 flex items-center gap-2 border-b border-gray-800 mb-4">
                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
                 <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div class="w-3 h-3 rounded-full bg-green-500"></div>
                 <span class="ml-2 text-gray-500">root@neonveil:~# asset_valuation</span>
             </div>
-
-            <!-- Terminal Body -->
             <div class="p-4 space-y-4">
                 <div class="flex justify-between items-end border-b border-gray-800 pb-2">
                     <span class="text-gray-400">TARGET_ASSET:</span>
                     <span class="text-cyber-cyan text-xl">neonveil.ai</span>
                 </div>
-                
                 <div class="flex justify-between items-end border-b border-gray-800 pb-2">
                     <span class="text-gray-400">MARKET_VALUE:</span>
-                    <span class="text-white text-2xl font-bold">$42,000 USD</span>
+                    <span class="text-white text-2xl font-bold">$7,000 USD</span>
                 </div>
-
                 <div class="flex justify-between items-end pb-2">
                     <span class="text-gray-400">FINANCING_OPTION:</span>
                     <div class="text-right">
-                        <span class="block text-cyber-pink">7-Month Installments Available</span>
-                        <span class="text-xs text-gray-500">Secure transaction via Afternic</span>
+                        <span class="block text-cyber-pink">10-Month Installments Available</span>
+                        <span class="text-xs text-gray-500">Secure transaction via Spaceship</span>
                     </div>
                 </div>
-
                 <div class="pt-6">
-                    <a href="https://www.afternic.com/domain/neonveil.ai" target="_blank" class="block w-full bg-cyber-pink/20 border border-cyber-pink text-cyber-pink text-center py-3 hover:bg-cyber-pink hover:text-white transition-all cursor-pointer">
+                    <a href="https://www.spaceship.com/s/buy/neonveil.ai/8pZpV1xgtBxhYDVN" target="_blank" class="block w-full bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan text-center py-3 hover:bg-cyber-cyan hover:text-black transition-all cursor-pointer">
                         > INITIATE_ACQUISITION_PROTOCOL
                     </a>
                 </div>
@@ -291,12 +195,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="relative z-10 border-t border-cyber-dim py-8 bg-black mt-auto">
         <div class="container mx-auto px-6 flex justify-between items-center text-xs font-code text-gray-600">
-            <div>
-                &copy; 2026 NEONVEIL.AI
-            </div>
+            <div>&copy; 2026 NEONVEIL.AI</div>
             <div class="flex items-center gap-2">
                 <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                 <span>STATUS: AVAILABLE</span>
@@ -304,38 +205,64 @@
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-10 left-1/2 bg-black text-cyber-cyan px-6 py-3 border border-cyber-cyan shadow-[0_0_20px_rgba(0,243,255,0.3)] z-50 flex items-center gap-3 font-code text-xs tracking-wider">
-        <i class="fa-solid fa-envelope"></i>
-        <span>CONTACT_INFO_COPIED</span>
-    </div>
-
-    <!-- Scripts -->
     <script>
-        function handleEmailClick(e) {
-            e.preventDefault();
-            const email = "joshua369x@gmail.com";
-            
-            navigator.clipboard.writeText(email).then(() => {
-                showToast();
-            }).catch(err => {
-                console.error('Copy failed', err);
-                showToast();
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('offerForm');
+            const statusDiv = document.getElementById('formStatus');
 
-            setTimeout(() => {
-                window.location.href = "mailto:" + email;
-            }, 800);
-        }
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.innerHTML;
 
-        function showToast() {
-            const toast = document.getElementById("toast");
-            toast.className += " show";
-            
-            setTimeout(() => {
-                toast.className = toast.className.replace(" show", "");
-            }, 3000);
-        }
+                    submitButton.innerHTML = 'TRANSMITTING...';
+                    submitButton.disabled = true;
+                    statusDiv.style.display = 'block';
+                    statusDiv.innerHTML = '<span class="text-gray-500">INITIATING TRANSMISSION...</span>';
+
+                    const formData = new FormData(form);
+                    
+                    // Key Fix: Force the action URL to use FormSubmit's AJAX endpoint.
+                    let actionUrl = form.action;
+                    if (!actionUrl.includes('/ajax/')) {
+                        actionUrl = actionUrl.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+                    }
+
+                    fetch(actionUrl, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        statusDiv.innerHTML = '<span class="text-cyber-cyan"><i class="fa-solid fa-check-circle mr-2"></i>TRANSMISSION SUCCESSFUL. STAND BY FOR RESPONSE.</span>';
+                        form.reset();
+                        submitButton.innerHTML = "SENT";
+                        
+                        setTimeout(() => {
+                            submitButton.innerHTML = originalButtonText;
+                            submitButton.disabled = false;
+                            statusDiv.style.display = "none";
+                        }, 4000);
+                    })
+                    .catch(error => {
+                        statusDiv.innerHTML = '<span class="text-cyber-pink"><i class="fa-solid fa-triangle-exclamation mr-2"></i>ERROR: CONNECTION INTERRUPTED. RETRY.</span>';
+                        console.error('Form Submission Error:', error);
+                        
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+
+                        setTimeout(() => {
+                            statusDiv.style.display = "none";
+                        }, 5000);
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
